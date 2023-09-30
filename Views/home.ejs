@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>
+            <%=title%>
+        </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="/css/home.css">
+        
+    </head>
+    <body>
+        <h1>"Hi Akshay!!! we are starting with the nodejs MVC structure"</h1>
+        
+        <h1 id="aa" class="fa fa-address-card-o fa-2x " >&nbsp;Contact detail</h1>
+        <div id="box">
+        <div id="aaa">
+            <ul >
+                <%for(let i of contact_list){%>
+                    <li id="aaaa">
+                        <p><%=i.name%>&nbsp;&nbsp;
+                        <%=i.phone%></p>
+                    </li>
+                    <div class="delete-button">
+                        <a href="/delete-contact/<%= i._id %>">
+                            delete
+                        </a>
+                    </div>  
+                <%}%>
+            </ul>
+        </div>
+
+        <div>
+            <form action="/create-contact" method="post">
+                <input type="text" name="name" placeholder="Enter name " required>
+                <input type="text" name="phone" placeholder="Enter phone no" required>
+                
+                <button type="submit">add contact</button>
+            </form>
+        </div>
+    </div>
+        <script type="text/javascript" src="/assets/js/home.js"></script>
+    </body>
+</html>
